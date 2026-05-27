@@ -144,3 +144,12 @@ svg {
     transform: translateY(0);
   }
 }
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marqueeScroll 120s linear infinite;
+}
