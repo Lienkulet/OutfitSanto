@@ -1,3 +1,4 @@
+import Footer from '@/components/layout/Footer'
 import BrandMarquee from '@/components/section/home/BrandMarquee'
 import CollectionsSection from '@/components/section/home/CollectionSection'
 import HeroSection from '@/components/section/home/hero/HeroSection'
@@ -9,11 +10,20 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <BrandMarquee /> 
+      <BrandMarquee />
       <NewArrivalsSection />
       <CollectionsSection />
       <ManifestoSection />
-      <NewsletterSection /> 
-    </> 
+
+      <div style={{
+        backgroundImage: 'url(/images/bgimg.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        height: '100%',
+      }}>
+        <NewsletterSection />
+        <Footer />
+      </div>
+    </>
   )
 }

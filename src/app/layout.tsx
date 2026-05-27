@@ -54,7 +54,6 @@ export default function RootLayout({
       <body className="min-h-full">
         <Navbar />
         {children}
-        <Footer />
       </body>
     </html>
   );

@@ -26,7 +26,7 @@ const HeroContent = () => {
             gap-4.5
             font-cinzel
             text-[10.5px]
-            font-semibold
+            font-bold
             uppercase
             tracking-[0.42em]
             text-(--magenta)
@@ -47,9 +47,9 @@ const HeroContent = () => {
             mb-9
             font-cormorant
             text-[clamp(22px,3.2vw,38px)]
-            font-light
+            font-extrabold
             italic
-            tracking-[0.06em]
+            tracking-[0.12em]
             text-(--text)
           "
         style={{

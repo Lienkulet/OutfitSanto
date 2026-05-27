@@ -7,7 +7,6 @@ const Footer = () => {
       className="
         border-t
         border-[oklch(0.11_0.04_310)]
-        bg-[oklch(0.04_0.025_305)]
         py-7
       "
     >

@@ -6,9 +6,9 @@ const NewsletterSection = () => {
   return (
     <section
       className="
+        relative
         border-t
         border-[oklch(0.16_0.05_310)]
-        bg-[oklch(0.085_0.026_308)]
         px-6
         py-20
         text-center

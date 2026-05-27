@@ -28,7 +28,7 @@ const NavbarDesktop = () => {
           gap-0
           no-underline
           text-[17px]
-          font-bold
+          font-extrabold
           tracking-[0.14em]
           text-(--text)
           font-cinzel-decorative
