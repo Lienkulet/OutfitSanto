@@ -1,17 +1,11 @@
 import HeroSection from '@/components/section/home/hero/HeroSection'
-import Image from 'next/image'
+import NewsletterSection from '@/components/section/newsletter/NewsletterSection'
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-        {/* <Image
-                  src={"/images/hero4.avif"}
-                  alt="Model wearing Rawblox"
-                  fill
-                  priority
-                  className="w-full h-full"
-                /> */}
+      <NewsletterSection />
                 
     </> 
   )

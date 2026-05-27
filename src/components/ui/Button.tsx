@@ -1,49 +1,87 @@
-import Link from 'next/link'
-import type { AnchorHTMLAttributes } from 'react'
+'use client';
 
-type Variant = 'primary' | 'secondary' | 'ghost'
-type Size = 'sm' | 'md' | 'lg'
+import Link from 'next/link';
+import { ReactNode } from 'react';
+import clsx from 'clsx';
 
-interface ButtonLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  href: string
-  variant?: Variant
-  size?: Size
-  label: string
+interface ButtonProps {
+  href?: string;
+  children: ReactNode;
+  filled?: boolean;
+  className?: string;
+  type?: 'button' | 'submit' | 'reset';
 }
 
-const BASE =
-  'inline-flex items-center justify-center rounded-full font-medium uppercase tracking-[0.14em] transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2'
-
-const VARIANTS: Record<Variant, string> = {
-  primary:
-    'bg-stone-950 text-white hover:bg-stone-700 focus-visible:ring-stone-950',
-  secondary:
-    'bg-white text-stone-950 border border-stone-950 hover:bg-stone-100 focus-visible:ring-stone-950',
-  ghost:
-    'text-stone-950 hover:text-stone-500 focus-visible:ring-stone-500',
-}
-
-const SIZES: Record<Size, string> = {
-  sm: 'px-5 py-2.5 text-[10px]',
-  md: 'px-7 py-3.5 text-[11px]',
-  lg: 'px-9 py-4 text-[12px]',
-}
-
-export default function ButtonLink({
-  href,
-  variant = 'primary',
-  size = 'md',
-  label,
-  className = '',
-  ...rest
-}: ButtonLinkProps) {
+export default function Button({
+  href = '#',
+  children,
+  filled = false,
+  className,
+}: ButtonProps) {
   return (
     <Link
       href={href}
-      className={[BASE, VARIANTS[variant], SIZES[size], className].join(' ')}
-      {...rest}
+      className={clsx(
+        `
+          group
+          relative
+          inline-flex
+          items-center
+          justify-center
+          overflow-hidden
+          border
+          px-10.5
+          py-3.5
+          font-cinzel
+          text-[11px]
+          font-semibold
+          uppercase
+          tracking-[0.32em]
+          no-underline
+          transition-all
+          duration-500
+          ease-out
+        `,
+
+        filled
+          ? `
+              border-(--magenta)
+              bg-(--magenta)
+              text-(--text)
+
+              hover:bg-transparent
+            `
+          : `
+              border-(--border-muted)
+              bg-transparent
+              text-(--text)
+
+              hover:border-(--magenta)
+            `,
+
+        className
+      )}
     >
-      {label}
+      {/* Inner border */}
+      <span
+        className={clsx(
+          `
+            pointer-events-none
+            absolute
+            inset-0.75
+            border
+            transition-colors
+            duration-500
+          border-(--border-light)
+          group-hover:border-(--magenta-dim)
+          group-hover:text-(--magenta)
+            `
+        )}
+      />
+
+      <span className='relative z-10'>
+        {children}
+      </span>
     </Link>
-  )
+  );
 }
