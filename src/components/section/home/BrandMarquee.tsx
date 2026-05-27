@@ -28,7 +28,7 @@ const BrandMarquee = () => {
         {items.map((brand, index) => {
           const outlined = index % 2 === 1;
           return (
-            <div key={`${brand}-${index}`} className="flex items-start">
+            <div key={`${brand}-${index}`} className="flex items-center">
               <span
                 className="px-8 text-3xl font-black uppercase tracking-[0.26em] font-cinzel"
                 style={
@@ -43,7 +43,10 @@ const BrandMarquee = () => {
                 {brand}
               </span>
 
-              {/* <span className="text-5xl text-(--magenta)">·</span> */}
+              <span
+                className="size-1.5 rounded-full shrink-0"
+                style={{ background: 'var(--magenta)' }}
+              />
             </div>
           );
         })}
