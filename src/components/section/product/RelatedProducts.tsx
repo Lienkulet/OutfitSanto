@@ -1,38 +1,32 @@
 import ProductCard from '@/components/cards/ProductCard';
 import SectionEyebrow from '@/components/ui/SectionEyebrow';
-import { products } from '@/data/products';
+import { InterfaceProduct } from '@/data/products';
 
-const NewArrivalsSection = () => {
+interface RelatedProductsProps {
+  products: InterfaceProduct[];
+}
+
+export default function RelatedProducts({ products }: RelatedProductsProps) {
+  if (products.length === 0) return null;
+
   return (
-    <section
-      className="
-        bg-[oklch(0.08_0.024_305)]
-        px-6
-        py-25
-        md:px-15
-      "
-    >
+    <section className="border-t border-[oklch(1_0_0/0.07)] px-6 py-20 md:px-15">
       {/* Header */}
-      <div
-        className="
-          mb-15
-          text-center
-        "
-      >
+      <div className="mb-12 text-center">
         <div className="mb-3.5">
-          <SectionEyebrow label="Just Dropped" />
+          <SectionEyebrow label="You May Also Like" />
         </div>
 
         <h2
           className="
-            text-[clamp(24px,3.2vw,44px)]
+            text-[clamp(20px,2.6vw,36px)]
             font-bold
             tracking-[0.08em]
             text-(--text)
             font-cinzel-decorative
           "
         >
-          New Arrivals
+          Related Pieces
         </h2>
       </div>
 
@@ -44,13 +38,13 @@ const NewArrivalsSection = () => {
           max-w-330
           grid-cols-2
           gap-3.5
-          lg:grid-cols-3
+          lg:grid-cols-4
           lg:gap-7
         "
       >
-        {products.slice(0, 3).map((product) => product.badge === 'New' && (
-         <ProductCard
-            key={product.name}
+        {products.map((product) => (
+          <ProductCard
+            key={product.slug}
             name={product.name}
             sub={product.sub}
             price={product.price}
@@ -62,5 +56,3 @@ const NewArrivalsSection = () => {
     </section>
   );
 }
-
-export default NewArrivalsSection;

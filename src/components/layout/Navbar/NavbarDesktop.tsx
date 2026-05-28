@@ -21,7 +21,7 @@ const NavbarDesktop = () => {
         >
             {/* Logo */}
             <a
-                href="#"
+                href="/"
                 className="
           flex
           items-center
@@ -57,7 +57,7 @@ const NavbarDesktop = () => {
             >
                 <li>
                     <a
-                        href="#"
+                        href="/shop"
                         className="
               font-cinzel
               text-[10.5px]
@@ -86,7 +86,7 @@ const NavbarDesktop = () => {
 
                 <li>
                     <a
-                        href="#"
+                        href="/lookbook"
                         className="
               font-cinzel
               text-[10.5px]
@@ -115,7 +115,7 @@ const NavbarDesktop = () => {
 
                 <li>
                     <a
-                        href="#"
+                        href="/stories"
                         className="
               font-cinzel
               text-[10.5px]
@@ -144,7 +144,7 @@ const NavbarDesktop = () => {
 
                 <li>
                     <a
-                        href="#"
+                        href="/about"
                         className="
               font-cinzel
               text-[10.5px]

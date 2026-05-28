@@ -1,6 +1,7 @@
 'use client';
 
 import CollectionCard from "@/components/cards/CollectionCard";
+import SectionEyebrow from '@/components/ui/SectionEyebrow';
 
 const collections = [
   {
@@ -39,24 +40,8 @@ const CollectionsSection = () => {
           text-center
         "
       >
-        <div
-          className="
-            mb-3.5
-            flex
-            items-center
-            justify-center
-            gap-4.5
-            text-[10px]
-            font-semibold
-            uppercase
-            tracking-[0.42em]
-            text-(--magenta)
-            font-cinzel
-          "
-        >
-          <span className="h-px w-8 bg-(--magenta-dim)" />
-          <span>Shop By Collection</span>
-          <span className="h-px w-8 bg-(--magenta-dim)" />
+        <div className="mb-3.5">
+          <SectionEyebrow label="Shop By Collection" />
         </div>
 
         <h2

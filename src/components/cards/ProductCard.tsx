@@ -1,9 +1,11 @@
 import Image from 'next/image'
+import Button from '../ui/Button';
 
-const ProductCard = ({ name, sub, price, badge, img }:
+const ProductCard = ({ name, sub, slug, price, badge, img }:
     {
         name: string;
         sub: string;
+        slug?: string;
         price: string;
         badge?: string;
         img: string;
@@ -65,26 +67,35 @@ const ProductCard = ({ name, sub, price, badge, img }:
                   group-hover:opacity-100
                 "
                 >
-                    <button
-                        className="
-                    border
-                    border-[oklch(0.93_0.012_50/0.55)]
-                    px-6.5
-                    py-3
-                    text-[9.5px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.28em]
-                    text-(--text)
-                    transition-all
-                    duration-200
-                    hover:border-(--magenta)
-                    hover:text-(--magenta-bright)
-                    font-cinzel
-                  "
-                    >
-                        Quick Add
-                    </button>
+                    {slug ? (
+                        <Button
+                            href={`/products/${slug}`}
+                        >
+                            View Product
+
+                        </Button>
+                    ) : (
+                        <button
+                            className="
+                        border
+                        border-[oklch(0.93_0.012_50/0.55)]
+                        px-6.5
+                        py-3
+                        text-[9.5px]
+                        font-semibold
+                        uppercase
+                        tracking-[0.28em]
+                        text-(--text)
+                        transition-all
+                        duration-200
+                        hover:border-(--magenta)
+                        hover:text-(--magenta-bright)
+                        font-cinzel
+                      "
+                        >
+                            Quick Add
+                        </button>
+                    )}
                 </div>
             </div>
 

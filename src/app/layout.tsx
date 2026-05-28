@@ -10,6 +10,7 @@ import "./globals.css";
 
 import Navbar from "@/components/layout/Navbar/Navbar";
 import Footer from "@/components/layout/Footer";
+import NewsletterSection from "@/components/section/home/NewsletterSection";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -54,6 +55,15 @@ export default function RootLayout({
       <body className="min-h-full">
         <Navbar />
         {children}
+        <div style={{
+          backgroundImage: 'url(/images/bgimg.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          height: '100%',
+        }}>
+          <NewsletterSection />
+          <Footer />
+        </div>
       </body>
     </html>
   );
