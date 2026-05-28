@@ -86,64 +86,6 @@ const NavbarDesktop = () => {
 
                 <li>
                     <a
-                        href="/lookbook"
-                        className="
-              font-cinzel
-              text-[10.5px]
-              font-semibold
-              uppercase
-              tracking-[0.28em]
-              no-underline
-              transition-colors
-              duration-300
-            "
-                        style={{
-                            color: "var(--text-muted)",
-                        }}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.color =
-                                "var(--magenta-bright)";
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.color =
-                                "var(--text-muted)";
-                        }}
-                    >
-                        Lookbook
-                    </a>
-                </li>
-
-                <li>
-                    <a
-                        href="/stories"
-                        className="
-              font-cinzel
-              text-[10.5px]
-              font-semibold
-              uppercase
-              tracking-[0.28em]
-              no-underline
-              transition-colors
-              duration-300
-            "
-                        style={{
-                            color: "var(--text-muted)",
-                        }}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.color =
-                                "var(--magenta-bright)";
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.color =
-                                "var(--text-muted)";
-                        }}
-                    >
-                        Stories
-                    </a>
-                </li>
-
-                <li>
-                    <a
                         href="/about"
                         className="
               font-cinzel
@@ -168,6 +110,34 @@ const NavbarDesktop = () => {
                         }}
                     >
                         About
+                    </a>
+                </li>
+                 <li>
+                    <a
+                        href="/contact"
+                        className="
+              font-cinzel
+              text-[10.5px]
+              font-semibold
+              uppercase
+              tracking-[0.28em]
+              no-underline
+              transition-colors
+              duration-300
+            "
+                        style={{
+                            color: "var(--text-muted)",
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.color =
+                                "var(--magenta-bright)";
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.color =
+                                "var(--text-muted)";
+                        }}
+                    >
+                        Contact
                     </a>
                 </li>
             </ul>

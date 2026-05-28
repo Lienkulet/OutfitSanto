@@ -5,7 +5,6 @@ export const FILTERS: { label: string; value: 'all' | Category }[] = [
   { label: 'All', value: 'all' },
   { label: 'Hoodies', value: 'hoodie' },
   { label: 'Tees', value: 'tee' },
-  { label: 'Jackets', value: 'jacket' },
   { label: 'Bottoms', value: 'bottom' },
 ];
 

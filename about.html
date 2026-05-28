@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Outfit Santo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;900&family=Cormorant+Garant:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:             oklch(0.06 0.032 305);
+      --bg2:            oklch(0.08 0.024 305);
+      --magenta:        oklch(0.52 0.27 325);
+      --magenta-dim:    oklch(0.36 0.20 320);
+      --magenta-bright: oklch(0.70 0.22 330);
+      --text:           oklch(0.93 0.012 50);
+      --text-muted:     oklch(0.58 0.018 50);
+      --border:         oklch(0.16 0.05 310);
+    }
+    html, body { background: var(--bg); color: var(--text); font-family: 'Cormorant Garant', serif; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 52px; height: 80px; background: oklch(0.05 0.028 305 / 0.97); border-bottom: 1px solid var(--border); backdrop-filter: blur(12px); }
+    .nav-logo { font-family: 'Cinzel Decorative', serif; font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: var(--text); text-decoration: none; }
+    .nav-logo em { font-style: normal; color: var(--magenta); }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a { font-family: 'Cinzel', serif; font-size: 10.5px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--magenta-bright); }
+    .nav-right { display: flex; gap: 24px; }
+    .nav-right a { font-family: 'Cinzel', serif; font-size: 10.5px; letter-spacing: 0.22em; color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
+    .nav-right a:hover { color: var(--magenta-bright); }
+
+    /* MANIFESTO HERO */
+    .manifesto-hero {
+      min-height: 90vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 120px 60px;
+      position: relative; overflow: hidden;
+    }
+    .manifesto-hero::before {
+      content: 'SANTO';
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(100px, 22vw, 320px);
+      font-weight: 900; color: oklch(0.10 0.036 310);
+      letter-spacing: 0.1em; pointer-events: none; white-space: nowrap; user-select: none;
+    }
+    .manifesto-hero-eyebrow { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600; letter-spacing: 0.44em; text-transform: uppercase; color: var(--magenta); margin-bottom: 40px; position: relative; z-index: 2; }
+    .manifesto-hero-title {
+      font-family: 'Cormorant Garant', serif; font-size: clamp(28px, 5.5vw, 76px);
+      font-style: italic; font-weight: 300; line-height: 1.35; letter-spacing: 0.02em;
+      color: var(--text); max-width: 900px; position: relative; z-index: 2;
+      text-wrap: pretty;
+    }
+    .manifesto-hero-title em { color: var(--magenta-bright); font-style: italic; }
+    .manifesto-hero-rule { width: 1px; height: 80px; background: linear-gradient(to bottom, var(--magenta-dim), transparent); margin: 52px auto 0; position: relative; z-index: 2; }
+
+    /* STORY SECTION */
+    .story { padding: 100px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; border-top: 1px solid var(--border); }
+    .story-visual {
+      aspect-ratio: 4/5;
+      background: repeating-linear-gradient(-45deg, oklch(0.10 0.034 308) 0px, oklch(0.10 0.034 308) 16px, oklch(0.08 0.028 305) 16px, oklch(0.08 0.028 305) 32px);
+      position: relative; overflow: hidden;
+    }
+    .story-visual-ph { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: monospace; font-size: 11px; letter-spacing: 0.1em; color: oklch(0.36 0.08 318); text-align: center; padding: 24px; line-height: 1.7; flex-direction: column; gap: 6px; }
+    .story-visual-label { position: absolute; bottom: 24px; left: 24px; font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); background: var(--bg); padding: 6px 14px; border: 1px solid var(--border); }
+    .story-body { padding-top: 12px; }
+    .story-eyebrow { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600; letter-spacing: 0.4em; text-transform: uppercase; color: var(--magenta); margin-bottom: 24px; }
+    .story-heading { font-family: 'Cinzel Decorative', serif; font-size: clamp(20px, 2.5vw, 34px); font-weight: 700; color: var(--text); margin-bottom: 32px; line-height: 1.3; letter-spacing: 0.04em; }
+    .story-text { font-family: 'Cormorant Garant', serif; font-size: 18px; font-weight: 300; line-height: 1.8; color: var(--text-muted); margin-bottom: 24px; }
+    .story-text strong { font-weight: 600; color: var(--text); }
+
+    /* RULE DIVIDER */
+    .rule-divider { display: flex; align-items: center; gap: 20px; padding: 0 60px; margin: 0; }
+    .rule-line { flex: 1; height: 1px; background: var(--border); }
+    .rule-glyph { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 0.35em; text-transform: uppercase; color: var(--magenta-dim); white-space: nowrap; }
+
+    /* PILLARS */
+    .pillars { padding: 100px 60px; border-top: 1px solid var(--border); }
+    .pillars-header { text-align: center; margin-bottom: 72px; }
+    .pillars-eyebrow { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600; letter-spacing: 0.42em; text-transform: uppercase; color: var(--magenta); margin-bottom: 14px; }
+    .pillars-title { font-family: 'Cinzel Decorative', serif; font-size: clamp(22px, 3vw, 40px); font-weight: 700; color: var(--text); }
+    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
+    .pillar {
+      background: var(--bg2); padding: 52px 44px 56px;
+      border-top: 2px solid transparent; transition: border-color 0.3s;
+      position: relative;
+    }
+    .pillar:hover { border-top-color: var(--magenta); }
+    .pillar-num { font-family: 'Cinzel Decorative', serif; font-size: 48px; font-weight: 900; color: oklch(0.14 0.04 310); line-height: 1; margin-bottom: 24px; }
+    .pillar-name { font-family: 'Cinzel Decorative', serif; font-size: clamp(16px, 1.6vw, 22px); font-weight: 700; color: var(--text); margin-bottom: 18px; letter-spacing: 0.04em; line-height: 1.2; }
+    .pillar-text { font-family: 'Cormorant Garant', serif; font-size: 17px; font-weight: 300; line-height: 1.75; color: var(--text-muted); }
+
+    /* NUMBERS STRIP */
+    .numbers-strip { padding: 80px 60px; border-top: 1px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    .number-item { background: var(--bg2); padding: 48px 36px; text-align: center; }
+    .number-val { font-family: 'Cinzel Decorative', serif; font-size: clamp(32px, 4vw, 56px); font-weight: 900; color: var(--magenta-bright); margin-bottom: 10px; line-height: 1; }
+    .number-label { font-family: 'Cinzel', serif; font-size: 9.5px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); }
+
+    /* CLOSING CTA */
+    .closing-cta {
+      padding: 120px 60px; text-align: center;
+      border-top: 1px solid var(--border);
+      background: oklch(0.055 0.030 305);
+    }
+    .closing-cta-title { font-family: 'Cormorant Garant', serif; font-size: clamp(24px, 4vw, 52px); font-style: italic; font-weight: 300; color: var(--text); margin-bottom: 40px; line-height: 1.4; max-width: 640px; margin-left: auto; margin-right: auto; }
+    .closing-cta-title em { color: var(--magenta-bright); }
+    .btn-primary { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase; text-decoration: none; padding: 15px 48px; background: var(--magenta); color: var(--text); border: 1px solid var(--magenta); position: relative; transition: background 0.3s, box-shadow 0.3s; cursor: pointer; display: inline-block; }
+    .btn-primary::before { content: ''; position: absolute; inset: 3px; border: 1px solid oklch(1 0 0 / 0.15); pointer-events: none; }
+    .btn-primary:hover { background: var(--magenta-bright); box-shadow: 0 10px 36px oklch(0.52 0.27 325 / 0.4); }
+
+    /* FOOTER */
+    .footer-bar { background: oklch(0.04 0.025 305); padding: 28px 52px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
+    .footer-logo { font-family: 'Cinzel Decorative', serif; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; color: var(--text-muted); text-decoration: none; }
+    .footer-logo em { font-style: normal; color: var(--magenta-dim); }
+    .footer-copy { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.2em; color: oklch(0.28 0.03 305); text-transform: uppercase; }
+    .footer-links { display: flex; gap: 28px; list-style: none; }
+    .footer-links a { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.2em; color: oklch(0.34 0.04 310); text-decoration: none; text-transform: uppercase; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--magenta); }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; } .nav-links { display: none; }
+      .manifesto-hero { padding: 80px 24px; min-height: 80vh; }
+      .story { grid-template-columns: 1fr; gap: 48px; padding: 72px 24px; }
+      .pillars { padding: 72px 24px; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .numbers-strip { grid-template-columns: repeat(2, 1fr); padding: 60px 24px; }
+      .closing-cta { padding: 80px 24px; }
+      .footer-bar { flex-direction: column; gap: 18px; padding: 28px 24px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="hero.html">OUTFIT<em>&nbsp;SANTO</em></a>
+    <ul class="nav-links">
+      <li><a href="shop.html">Collections</a></li>
+      <li><a href="lookbook.html">Lookbook</a></li>
+      <li><a href="about.html">Stories</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#">Search</a>
+      <a href="#">Cart &nbsp;(0)</a>
+    </div>
+  </nav>
+
+  <!-- MANIFESTO HERO -->
+  <section class="manifesto-hero">
+    <div class="manifesto-hero-eyebrow">Est. 2022 — Buenos Aires</div>
+    <h1 class="manifesto-hero-title">
+      We don't follow fashion.<br>
+      We dress <em>the sacred</em><br>
+      and the streets.
+    </h1>
+    <div class="manifesto-hero-rule"></div>
+  </section>
+
+  <!-- BRAND STORY -->
+  <section class="story">
+    <div class="story-visual">
+      <div class="story-visual-ph">
+        <span>brand photography</span>
+        <span style="font-size:9px;opacity:0.6;">founder / atelier shot</span>
+      </div>
+      <div class="story-visual-label">Buenos Aires, 2022</div>
+    </div>
+    <div class="story-body">
+      <div class="story-eyebrow">Our Story</div>
+      <h2 class="story-heading">Born on the Corner of<br>Heaven & the Street</h2>
+      <p class="story-text">
+        Outfit Santo began as a single idea in a Buenos Aires workshop: that <strong>streetwear and the sacred aren't opposites</strong> — they're two expressions of the same hunger. The hunger to be seen. To be felt. To matter.
+      </p>
+      <p class="story-text">
+        We take the iconography of the divine — angels, crosses, relics, baroque ornament — and we break it open against the raw energy of urban culture. <strong>The result is clothing that carries weight.</strong> Every stitch is intentional. Every drop is limited.
+      </p>
+      <p class="story-text">
+        No fast fashion. No compromise. Just pieces built to last longer than the season that spawned them.
+      </p>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="pillars">
+    <div class="pillars-header">
+      <div class="pillars-eyebrow">What We Stand For</div>
+      <h2 class="pillars-title">The Three Pillars</h2>
+    </div>
+    <div class="pillars-grid">
+
+      <div class="pillar">
+        <div class="pillar-num">I</div>
+        <div class="pillar-name">Sacred Craft</div>
+        <p class="pillar-text">Every garment is constructed to the standard of something worth keeping. Heavyweight fabrics, woven labels, hand-finished details — built for the long wear, not the quick sale.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">II</div>
+        <div class="pillar-name">Limited by Design</div>
+        <p class="pillar-text">We drop in small runs. When a piece is gone, it's gone. Scarcity isn't a marketing trick — it's a commitment to meaning. We'd rather disappoint a queue than flood the world with product.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">III</div>
+        <div class="pillar-name">Street Provenance</div>
+        <p class="pillar-text">Our design language comes from the city — from walls, music, ink, and movement. We don't interpret the street from a distance. We live on it. That's where the ideas live too.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NUMBERS -->
+  <div class="numbers-strip">
+    <div class="number-item">
+      <div class="number-val">04</div>
+      <div class="number-label">Years in Operation</div>
+    </div>
+    <div class="number-item">
+      <div class="number-val">12</div>
+      <div class="number-label">Drops Per Year</div>
+    </div>
+    <div class="number-item">
+      <div class="number-val">300</div>
+      <div class="number-label">Units Per Drop</div>
+    </div>
+    <div class="number-item">
+      <div class="number-val">20+</div>
+      <div class="number-label">Partner Brands</div>
+    </div>
+  </div>
+
+  <!-- CLOSING CTA -->
+  <section class="closing-cta">
+    <p class="closing-cta-title">
+      You've read the story.<br>
+      Now wear it.
+    </p>
+    <a href="shop.html" class="btn-primary">Shop the Collection</a>
+  </section>
+
+  <footer class="footer-bar">
+    <a href="hero.html" class="footer-logo">OUTFIT<em>&nbsp;SANTO</em></a>
+    <span class="footer-copy">© 2026 Outfit Santo. All rights reserved.</span>
+    <ul class="footer-links">
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Terms</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Instagram</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
