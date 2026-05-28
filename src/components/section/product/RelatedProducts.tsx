@@ -45,6 +45,7 @@ export default function RelatedProducts({ products }: RelatedProductsProps) {
         {products.map((product) => (
           <ProductCard
             key={product.slug}
+            slug={product.slug}
             name={product.name}
             sub={product.sub}
             price={product.price}

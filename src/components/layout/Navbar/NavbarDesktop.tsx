@@ -1,4 +1,6 @@
 'use client';
+import CartTrigger from '@/features/cart/components/CartTrigger';
+
 const NavbarDesktop = () => {
     return (
         <nav
@@ -175,30 +177,7 @@ const NavbarDesktop = () => {
                     Search
                 </a>
 
-                <a
-                    href="#"
-                    className="
-            font-cinzel
-            text-[10.5px]
-            tracking-[0.22em]
-            no-underline
-            transition-colors
-            duration-300
-          "
-                    style={{
-                        color: "var(--text-muted)",
-                    }}
-                    onMouseEnter={(e) => {
-                        e.currentTarget.style.color =
-                            "var(--magenta-bright)";
-                    }}
-                    onMouseLeave={(e) => {
-                        e.currentTarget.style.color =
-                            "var(--text-muted)";
-                    }}
-                >
-                    Cart &nbsp;(0)
-                </a>
+                <CartTrigger />
             </div>
         </nav>
     );

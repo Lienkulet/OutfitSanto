@@ -2,8 +2,7 @@ import { notFound } from 'next/navigation';
 import { products } from '@/data/products';
 import ProductGallery from '@/components/section/product/ProductGallery';
 import ProductInfo from '@/components/section/product/ProductInfo';
-import SizeSelector from '@/components/section/product/SizeSelector';
-import ProductActions from '@/components/section/product/ProductActions';
+import ProductPurchasePanel from '@/components/section/product/ProductPurchasePanel';
 import ProductAccordion from '@/components/section/product/ProductAccordion';
 import ProductBreadcrumb from '@/components/section/product/ProductBreadcrumb';
 import ProductTrustSignals from '@/components/section/product/ProductTrustSignals';
@@ -44,8 +43,13 @@ export default async function ProductPage({ params }: PageProps) {
           />
 
           <Divider />
-          <SizeSelector sizes={product.sizes} />
-          <ProductActions />
+          <ProductPurchasePanel
+            slug={product.slug}
+            name={product.name}
+            img={product.gallery[0] ?? product.img}
+            price={product.price}
+            sizes={product.sizes}
+          />
           <Divider />
 
           <ProductAccordion

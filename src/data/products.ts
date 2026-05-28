@@ -21,8 +21,8 @@ export const products: InterfaceProduct[] = [
     sub: 'Limited Edition',
     price: '80$',
     badge: 'New',
-    img: '/products/hoodie.png',
-    gallery: ['/products/hoodie.png'],
+    img: '/products/hoodie2.png',
+    gallery: ['/products/hoodie2.png'],
     description:
       'Heavy. Distressed. A hoodie that looks like it has already been through something. The Martyr comes out of wash with an aged patina — intentional from the start.',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -40,8 +40,8 @@ export const products: InterfaceProduct[] = [
     name: 'Benediction Tee',
     sub: 'Core Collection',
     price: '50$',
-    img: '/products/tshirt.png',
-    gallery: ['/products/tshirt.png'],
+    img: '/products/tshirt2.jpeg',
+    gallery: ['/products/tshirt2.jpeg'],
     description:
       'The Benediction is an oversized silhouette with a dropped shoulder seam and subtle chest placement. Understated. Essential. Worn as an act of intention.',
     sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],

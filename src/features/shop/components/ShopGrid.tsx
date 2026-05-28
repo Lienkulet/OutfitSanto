@@ -1,8 +1,12 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import ProductCard from '@/components/cards/ProductCard';
 import EmptyState from '@/components/ui/EmptyState';
 import Button from '@/components/ui/Button';
-import { InterfaceProduct } from '@/data/products';
 import Container from '@/components/layout/Container';
+import { InterfaceProduct } from '@/data/products';
+import { fadeUp, staggerContainer } from '@/lib/motion';
 
 interface ShopGridProps {
   products: InterfaceProduct[];
@@ -17,26 +21,37 @@ export default function ShopGrid({ products, hasMore, onLoadMore }: ShopGridProp
 
   return (
     <Container>
-      <div className="my-10 grid grid-cols-2 gap-5 bg-[oklch(0.04_0.025_305)] p-0.5 lg:grid-cols-3">
+      <motion.div
+        className="my-10 grid grid-cols-2 gap-5 bg-[oklch(0.04_0.025_305)] p-0.5 lg:grid-cols-3"
+        variants={staggerContainer(0.08)}
+        initial="hidden"
+        animate="visible"
+      >
         {products.map((product) => (
-          <ProductCard
-            key={product.slug}
-            slug={product.slug}
-            name={product.name}
-            sub={product.sub}
-            price={product.price}
-            badge={product.badge}
-            img={product.img}
-          />
+          <motion.div key={product.slug} variants={fadeUp}>
+            <ProductCard
+              slug={product.slug}
+              name={product.name}
+              sub={product.sub}
+              price={product.price}
+              badge={product.badge}
+              img={product.img}
+            />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {hasMore && (
-        <div className="py-18 text-center">
+        <motion.div
+          className="py-18 text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+        >
           <Button onClick={onLoadMore} filled className="px-12 py-4 text-[11px]">
             Load More
           </Button>
-        </div>
+        </motion.div>
       )}
     </Container>
   );

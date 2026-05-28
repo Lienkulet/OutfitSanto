@@ -1,144 +1,66 @@
-import Button from '@/components/ui/Button'
-import React from 'react'
+'use client';
+
+import { motion } from 'framer-motion';
+import Button from '@/components/ui/Button';
+import { fadeIn, slideUp, staggerContainer } from '@/lib/motion';
 
 const HeroContent = () => {
   return (
-    <div
-      className="
-          relative
-          z-10
-          flex
-          flex-col
-          items-center
-          px-6
-          pb-18
-          text-center
-          max-[700px]:px-5
-          max-[700px]:pb-20
-        "
+    <motion.div
+      className="relative z-10 flex flex-col items-center px-6 pb-18 text-center max-[700px]:px-5 max-[700px]:pb-20"
+      variants={staggerContainer(0.14, 0.25)}
+      initial="hidden"
+      animate="visible"
     >
       {/* Eyebrow */}
-      <div
-        className="
-            mb-4.5
-            flex
-            items-center
-            gap-4.5
-            font-cinzel
-            text-[10.5px]
-            font-bold
-            uppercase
-            tracking-[0.42em]
-            text-(--magenta)
-          "
+      <motion.div
+        variants={fadeIn}
+        className="mb-4.5 flex items-center gap-4.5 font-cinzel text-[10.5px] font-bold uppercase tracking-[0.42em] text-(--magenta)"
       >
         <span className="block h-px w-11 bg-(--magenta-dim)" />
-
-        <span>
-          The Sacred Collection &nbsp;·&nbsp; SS 2026
-        </span>
-
+        <span>The Sacred Collection &nbsp;·&nbsp; SS 2026</span>
         <span className="block h-px w-11 bg-(--magenta-dim)" />
-      </div>
+      </motion.div>
 
       {/* Tagline */}
-      <p
-        className="
-            mb-9
-            font-cormorant
-            text-[clamp(22px,3.2vw,38px)]
-            font-extrabold
-            italic
-            tracking-[0.12em]
-            text-(--text)
-          "
-        style={{
-          lineHeight: 1.35,
-          textShadow: '0 2px 24px oklch(0.04 0.03 305 / 0.8)',
-        }}
+      <motion.p
+        variants={slideUp}
+        className="mb-9 font-cormorant text-[clamp(22px,3.2vw,38px)] font-extrabold italic tracking-[0.12em] text-(--text)"
+        style={{ lineHeight: 1.35, textShadow: '0 2px 24px oklch(0.04 0.03 305 / 0.8)' }}
       >
         For the Sacred &amp; the Damned.
-      </p>
+      </motion.p>
 
       {/* Divider */}
-      <div
-        className="
-            mb-9
-            flex
-            items-center
-            gap-3.5
-          "
-      >
+      <motion.div variants={fadeIn} className="mb-9 flex items-center gap-3.5">
         <div
           className="h-px w-18"
-          style={{
-            background:
-              'linear-gradient(to right, transparent, var(--magenta-dim))',
-          }}
+          style={{ background: 'linear-gradient(to right, transparent, var(--magenta-dim))' }}
         />
-
         <div className="flex items-center justify-center">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <rect
-              x="7"
-              y="0"
-              width="2"
-              height="16"
-              fill="oklch(0.70 0.22 330)"
-            />
-            <rect
-              x="0"
-              y="7"
-              width="16"
-              height="2"
-              fill="oklch(0.70 0.22 330)"
-            />
-            <rect
-              x="6"
-              y="6"
-              width="4"
-              height="4"
-              fill="oklch(0.06 0.03 305)"
-            />
-            <rect
-              x="7"
-              y="7"
-              width="2"
-              height="2"
-              fill="oklch(0.52 0.27 325)"
-            />
+            <rect x="7" y="0" width="2" height="16" fill="oklch(0.70 0.22 330)" />
+            <rect x="0" y="7" width="16" height="2" fill="oklch(0.70 0.22 330)" />
+            <rect x="6" y="6" width="4" height="4" fill="oklch(0.06 0.03 305)" />
+            <rect x="7" y="7" width="2" height="2" fill="oklch(0.52 0.27 325)" />
           </svg>
         </div>
-
         <div
           className="h-px w-18"
-          style={{
-            background:
-              'linear-gradient(to left, transparent, var(--magenta-dim))',
-          }}
+          style={{ background: 'linear-gradient(to left, transparent, var(--magenta-dim))' }}
         />
-      </div>
+      </motion.div>
 
       {/* CTA Buttons */}
-      <div
-        className="
-            flex
-            flex-wrap
-            items-center
-            justify-center
-            gap-4.5
-          "
+      <motion.div
+        variants={fadeIn}
+        className="flex flex-wrap items-center justify-center gap-4.5"
       >
-        <Button filled>
-          Shop Collection
-        </Button>
+        <Button filled>Shop Collection</Button>
+        <Button>Explore Lookbook</Button>
+      </motion.div>
+    </motion.div>
+  );
+};
 
-        <Button>
-          Explore Lookbook
-        </Button>
-      </div>
-    </div>
-  )
-}
-
-export default HeroContent
+export default HeroContent;
